@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class Lab3 extends AppCompatActivity {
+    EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +24,18 @@ public class Lab3 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        editText = findViewById(R.id.editName);
+
     }
-    EditText editText = findViewById(R.id.editName);
+
     public void StartNewActivity4(View v){
         Intent intent  = new Intent(this, Second.class);
+        intent.putExtra("KeyName", editText.getText().toString());
         startActivity(intent);
     }
     public void StartNewActivity5(View v){
         Intent intent  = new Intent(this, MainActivity.class);
-        intent.putExtra("KeyName", editText.getText().toString());
+
         startActivity(intent);
     }
 }
